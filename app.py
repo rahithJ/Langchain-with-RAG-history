@@ -16,14 +16,15 @@ from langchain.chains.retrieval import create_retrieval_chain
 import os
 from dotenv import load_dotenv
 load_dotenv()
-os.environ['LANGCHAIN_API_KEY'] = st.text_input('LANGCHAIN_API_KEY')
-os.environ['GROQ_API_KEY'] = st.text_input('GROQ_API_KEY')
+os.environ['LANGCHAIN_API_KEY'] = st.text_input('LANGCHAIN_API_KEY', type='password')
+os.environ['GROQ_API_KEY'] = st.text_input('GROQ_API_KEY', type='password')
 os.environ['LANGCHAIN_PROJECT'] = 'NEW_RAG_WITH_HISTORY'
-os.environ['HF_TOKEN'] = st.text_input('HF_TOKEN')
+os.environ['HF_TOKEN'] = st.text_input('HF_TOKEN', type='password')
 os.environ['LANGCHAIN_TRACING_V2'] = 'true'
+st.title('PDF Explorer by Rahith')
 st.title('RAG WITH HISTORY SHOWN')
 uploaded_file = st.file_uploader('Upload a PDF to Disect',type='pdf',accept_multiple_files=False)
-session_id = st.text_input('Session_id',value='CHAT-1')
+session_id = st.text_input('Session Id',value='CHAT-1')
 
 if 'store' not in st.session_state:
     st.session_state.store = {}
