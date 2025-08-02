@@ -16,10 +16,10 @@ from langchain.chains.retrieval import create_retrieval_chain
 import os
 from dotenv import load_dotenv
 load_dotenv()
-os.environ['LANGCHAIN_API_KEY'] = st.write('LANGCHAIN_API_KEY')
-os.environ['GROQ_API_KEY'] = st.write('GROQ_API_KEY')
+os.environ['LANGCHAIN_API_KEY'] = st.text_input('LANGCHAIN_API_KEY')
+os.environ['GROQ_API_KEY'] = st.text_input('GROQ_API_KEY')
 os.environ['LANGCHAIN_PROJECT'] = 'NEW_RAG_WITH_HISTORY'
-os.environ['HF_TOKEN'] = st.write('HF_TOKEN')
+os.environ['HF_TOKEN'] = st.text_input('HF_TOKEN')
 os.environ['LANGCHAIN_TRACING_V2'] = 'true'
 st.title('RAG WITH HISTORY SHOWN')
 uploaded_file = st.file_uploader('Upload a PDF to Disect',type='pdf',accept_multiple_files=False)
